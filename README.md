@@ -141,35 +141,43 @@ My final model results were:
 * test set accuracy of 0.915
 
 If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-The first architecture tried was the default LeNet without dropout and without data augmentation. I chose it because 
-that model was what I learned from the course. I wanted to see what it would perform for the training and validation
-data sets.
-* What were some problems with the initial architecture?
-The problem was it ended up around less than 90% accuracy.
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-After the initial architecture, I generated more datasets for the under-represented training classes by using image 
-rotation and gaussian lighting noise. It ended up around 92% validation accuracy. Then I added dropout for the fully 
-connected layers. It bumped the validation accuracy to 95%. I have a question here - when I added dropout to the 
-CONV1 and CONV2 layers, it didn't help improving the validation accuracy.
-* Which parameters were tuned? How were they adjusted and why?
-I tuned the BATCH_SIZE. I tried 256, 128 and 64. I found 128 and 64 BATCH_SIZE having similar accuracy performance. 
-The 256 BATCH_SIZE actually hurts the accuracy. I also increased the EPOCHS from 20 to 30. It helped a little bit on 
+* What was the first architecture that was tried and why was it
+chosen?  The first architecture tried was the default LeNet without
+dropout and without data augmentation. It obviously did not work very
+well.
+* What were some problems with the initial architecture?  The problem
+was it ended up around less than 80% accuracy.
+* How was the architecture adjusted and why was it adjusted? Typical
+adjustments could include choosing a different model architecture,
+adding layers (pooling, dropout, convolution, etc), using an RELU
+activation function or changing the activation function. One common
+justification for adjusting an architecture would be due to
+overfitting or underfitting. A high accuracy on the training set but
+low accuracy on the validation set indicates over fitting; a low
+accuracy on both sets indicates under fitting. The model ended up
+around 92.2% validation accuracy.  I used the BATCH_SIZE 128.  I also
+increased the EPOCHS from 20 to 50. It helped quite a little bit on
 the accuracy.
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-The important design choice I think is the data augmentation before applying the LeNet. Also adding pooling layers helps. 
-Finally the dropout out layers add regularization and avoid overfitting.
+
+* What are some of the important design choices and why were they
+chosen? For example, why might a convolution layer work well with this
+problem? How might a dropout layer help with creating a successful
+model?  The most important change is the data augmentation before
+applying the LeNet. Also adding pooling layers and dropout helps.
 
 If a well known architecture was chosen:
-* What architecture was chosen?
-Here I chose the LetNet-5 architecture for the project. It has 2 convolution layers and 3 fully connected layers
-* Why did you believe it would be relevant to the traffic sign application?
-With more layers, it extracts more images features. With several try-outs, it works pretty good on the validation and 
-test accuracy. Due to the time I have for the project, I haven't tried other architectures. I will definitely try 
-other training architecture.
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
-Data augmentation, normalization helped better training the model. Dropout helped avoiding the overfitting, 
-thus helped the validation and testing accuracy.
+* What architecture was chosen?  Here I chose the LetNet-5 layer
+architecture for the project. It has 2 convolution layers and 3 fully
+connected layers
+* Why did you believe it would be relevant to the traffic sign
+application?  With more layers, it extracts more images features. With
+several try-outs, it works pretty good on the validation and test
+accuracy.
+* How does the final model's accuracy on the training, validation and
+test set provide evidence that the model is working well?  Data
+augmentation, normalization helped better training the model. Dropout
+helped avoiding the overfitting, thus helped the validation and
+testing accuracy.
 
 ### Test a Model on New Images
 
